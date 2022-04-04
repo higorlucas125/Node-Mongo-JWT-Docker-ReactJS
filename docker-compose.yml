@@ -1,0 +1,73 @@
+version: '3'
+
+services:
+  back_end:
+    build:
+      context: .
+      dockerfile: ./back-end/Dockerfile
+    depends_on:
+      - db
+    image: back-end
+    ports: 
+     - "3000:3001"
+    environment:
+      - MONGO_URI=mongodb://db:27017/
+    volumes:
+     - ./back-end/models:/back-end/models
+     - ./back-end/routes:/back-end/routes
+     - ./back-end/index.js:/back-end/index.js
+     - ./back-end/.env:/back-end/.env
+    command: "node_modules/.bin/nodemon index.js"
+    networks:
+      - mongo-compose-network
+
+  front-end:
+    build:
+      context: .
+      dockerfile: ./front-end/Dockerfile
+    image: front-end
+    ports: 
+     - "3001:3000"
+    volumes:
+     - ./front-end/public:/app/public
+     - ./front-end/src:/app/src
+    command: "npm start"
+    networks:
+      - mongo-compose-network
+
+  db:
+    container_name: mongo-dev
+    image: mongo
+    environment:
+      - MONGO_INITDB_ROOT_USERNAME=admin
+      - MONGO_INITDB_ROOT_PASSWORD=pass
+      - MONGO_INITDB_DATABASE=E_COMMERCE
+    networks: 
+      - mongo-compose-network
+    ports:
+      - '27017:27017'
+    volumes: 
+      - $HOME/Docker/Volumes/MongoDB:/data/db
+
+  mongo-express:
+    container_name: mongo-express
+    image: mongo-express
+    depends_on:
+      - db
+    networks: 
+      - mongo-compose-network
+    environment:
+      - ME_CONFIG_MONGODB_SERVER=mongo-dev
+      - ME_CONFIG_MONGODB_ADMINUSERNAME=admin
+      - ME_CONFIG_MONGODB_ADMINPASSWORD=pass
+      - ME_CONFIG_BASICAUTH_USERNAME=admin
+      - ME_CONFIG_BASICAUTH_PASSWORD=tribes
+      - MONGO_URI=mongodb://db:27017/
+    ports:
+      - '8081:8081'
+    volumes: 
+      - $HOME/Docker/Volumes/MongoDB:/data/db
+
+networks: 
+    mongo-compose-network:
+      driver: bridge
