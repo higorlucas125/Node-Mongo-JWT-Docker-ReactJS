@@ -65,7 +65,7 @@ It is recommended that you use docker to upload the application. So docker will 
 
 You need to have docker installed on your machine and docker-compose
 
-_Documentation of docker to install [Documentation](https://docs.docker.com/engine/install/ubuntu/)_
+  _Documentation of docker to install [Documentation](https://docs.docker.com/engine/install/ubuntu/)_
 
 _step by step on how to upload the application_
 
@@ -73,9 +73,9 @@ _step by step on how to upload the application_
  ```sh
     docker-compose up --force-recreate --build -d
  ```
-2 . After starting, open url [Monogo_express](localhost:8081)
+2 . After starting, open url [Monogo_express](http://localhost:8081)
 
-3 . Open port [Front-End](localhost:3001)
+3 . Open port [Front-End](http://localhost:3001)
 
-4 . Open port [Back-End](localhost:3000)
+4 . Open port [Back-End](http://localhost:3000)
 
