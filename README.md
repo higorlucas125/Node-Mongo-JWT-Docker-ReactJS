@@ -4,16 +4,19 @@ Tutorial All Create node, mong, jwt,docker in reactJs
 ## What you need ?
 
 ## 🚀 Skills
-<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" alt="Nodejs"/></code>
+<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/nodejs/nodejs.png" alt="Nodejs"/>
 
 > node.js 16 version
-<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" alt="MongoDB"/></code>
+</code>
+
+<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" alt="MongoDB"/>
 
 > Mongodb service
+</code>
 
-<code><img height="32" src="https://raw.githubusercontent.com/github/explore/80688e429a7d4ef2fca1e82350fe8e3517d3494d/topics/mongodb/mongodb.png" alt="Docker"/></code>
 
 > Docker and Docker-Compose
+
 
 <!-- GETTING STARTED -->
 ## Getting Started
@@ -67,13 +70,12 @@ _Documentation of docker to install [Documentation](https://docs.docker.com/engi
 _step by step on how to upload the application_
 
 1 . Inside the root directory run the following command
-
-    ```sh
+ ```sh
     docker-compose up --force-recreate --build -d
-   ```
-2 . After starting, open port localhost:8081 Monogo_express
+ ```
+2 . After starting, open url [Monogo_express](localhost:8081)
 
-3 . Open port localhost:3001 Front-End
+3 . Open port [Front-End](localhost:3001)
 
-4 . Open port localhost:3000 Back-End
+4 . Open port [Back-End](localhost:3000)
 
